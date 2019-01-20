@@ -19,4 +19,11 @@ class MapPreset extends Model
     public function categories() {
         return $this->belongsToMany(Category::class, 'map_preset_categories');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function businessHours() {
+        return $this->hasMany(MapPresetBusinessHours::class);
+    }
 }
