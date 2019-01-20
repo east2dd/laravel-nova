@@ -39,7 +39,7 @@ sudo service docker restart
 docker-compose down --rmi=local -v -f
 ```
 This command will stop docker and restart, also remove all docker containers.
-And Follow above steps again. Imoportant : 1.if you use vpn tool, disable it. 2. Maintain Memory 4GB: Run ElasticSearch docker Container. 
+And Follow above steps again. Important : 1.if you use vpn tool, disable it. 2. Maintain Memory 4GB: Run ElasticSearch docker Container.
 
 # Cleanup
 
