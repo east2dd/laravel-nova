@@ -14,7 +14,7 @@ class ChangeColumnsInBusinessHours extends Migration
     public function up()
     {
         Schema::table('business_hours', function (Blueprint $table) {
-            if (Schema::hasColumn('businesses', 'bio')) {
+            if (Schema::hasColumn('business_hours', 'day_of_week')) {
                 $table->dropColumn('day_of_week');
             }
             if (!Schema::hasColumn('business_hours', 'wd_0')) {
