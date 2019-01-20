@@ -13,7 +13,7 @@ class RecreateMapPresetBusinessHoursTable extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('map_preset_hours')) {
+        if(!Schema::hasTable('map_preset_business_hours')) {
             Schema::create('map_preset_business_hours', function (Blueprint $table) {
                 $table->increments('id');
                 $table->unsignedInteger('map_preset_id')->index();

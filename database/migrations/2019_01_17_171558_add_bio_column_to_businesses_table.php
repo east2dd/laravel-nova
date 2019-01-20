@@ -14,7 +14,9 @@ class AddBioColumnToBusinessesTable extends Migration
     public function up()
     {
         Schema::table('businesses', function (Blueprint $table) {
-            $table->longText('bio')->after('lng')->nullable();
+            if (!Schema::hasColumn('businesses', 'bio')) {
+                $table->longText('bio')->after('lng')->nullable();
+            }
         });
     }
 

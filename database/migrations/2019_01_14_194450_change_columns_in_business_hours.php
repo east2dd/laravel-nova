@@ -14,14 +14,18 @@ class ChangeColumnsInBusinessHours extends Migration
     public function up()
     {
         Schema::table('business_hours', function (Blueprint $table) {
-            $table->dropColumn('day_of_week');
-            $table->boolean('wd_0')->default(false);
-            $table->boolean('wd_1')->default(false);
-            $table->boolean('wd_2')->default(false);
-            $table->boolean('wd_3')->default(false);
-            $table->boolean('wd_4')->default(false);
-            $table->boolean('wd_5')->default(false);
-            $table->boolean('wd_6')->default(false);
+            if (Schema::hasColumn('businesses', 'bio')) {
+                $table->dropColumn('day_of_week');
+            }
+            if (!Schema::hasColumn('business_hours', 'wd_0')) {
+                $table->boolean('wd_0')->default(false);
+                $table->boolean('wd_1')->default(false);
+                $table->boolean('wd_2')->default(false);
+                $table->boolean('wd_3')->default(false);
+                $table->boolean('wd_4')->default(false);
+                $table->boolean('wd_5')->default(false);
+                $table->boolean('wd_6')->default(false);
+            }
         });
     }
 

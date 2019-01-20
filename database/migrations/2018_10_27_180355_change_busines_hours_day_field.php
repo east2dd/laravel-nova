@@ -14,7 +14,9 @@ class ChangeBusinesHoursDayField extends Migration
     public function up()
     {
         Schema::table('business_hours', function (Blueprint $table) {
-            $table->smallInteger('day_of_week')->change();
+            if (Schema::hasColumn('businesses', 'bio')) {
+                $table->smallInteger('day_of_week')->change();
+            }
         });
     }
 
@@ -26,7 +28,9 @@ class ChangeBusinesHoursDayField extends Migration
     public function down()
     {
         Schema::table('business_hours', function (Blueprint $table) {
-            $table->string('day_of_week')->change();
+            if (Schema::hasColumn('businesses', 'bio')) {
+                $table->string('day_of_week')->change();
+            }
         });
     }
 }
