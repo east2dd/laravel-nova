@@ -16,6 +16,7 @@
         "acme/map-field": "*",
         "aws/aws-sdk-php": "^3.69",
         "babenkoivan/scout-elasticsearch-driver": "v3.8.2",
+        "brianium/paratest": "^2.1",
         "darkaonline/l5-swagger": "5.7.*",
         "doctrine/dbal": "^2.8",
         "epartment/nova-dependency-container": "dev-master",
