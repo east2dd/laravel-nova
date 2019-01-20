@@ -22,3 +22,4 @@ build-deploy/run.sh
 build-deploy/prepare.sh
 docker-compose.yml
 composer.lock
+package.lock
