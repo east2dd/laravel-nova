@@ -65,6 +65,8 @@ class BusinessesController extends Controller
         $topLeft     = $request->get('top_left');
         $bottomRight = $request->get('bottom_right');
 
+        // TODO: should there be a similar check for lng values?
+        // TODO: what happens (in extreme case) when search box is around where the Equator crosses the International Date Line?
         if ($topLeft['lat'] <= $bottomRight['lat']) {
             return response()->json([
                 'message' => 'The given data is invalid'
@@ -228,7 +230,7 @@ class BusinessesController extends Controller
     public function deleteAvatar($id) {
         $business = Business::find($id);
         if($business && !empty($business->avatar)) {
-
+            // TODO: should $filename be defined somewhat similarly as in $updateAvatar?
             $path = public_path('storage/' . $filename);
             unlink(storage_path($path));
 

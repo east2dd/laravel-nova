@@ -9,6 +9,7 @@ class ExploreBusinessesRule {
      * @return array
      */
     public static function build($lat, $lng, $distance) {
+        //prefer records that are within specified distance of supplied position (such as picked up by mobile GPS)
         return [
             'should' => [
                 [

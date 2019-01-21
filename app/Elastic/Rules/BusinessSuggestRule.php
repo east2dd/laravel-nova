@@ -10,6 +10,7 @@ class BusinessSuggestRule
      */
     public static function build(string $query): array
     {
+        // suggest deduplicated businesses that are very close, rewrite-wise, to supplied query
         return [
             'index' => 'business',
             'type'  => 'businesses',

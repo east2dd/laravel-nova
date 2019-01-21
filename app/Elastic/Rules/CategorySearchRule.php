@@ -26,6 +26,7 @@ class CategorySearchRule extends SearchRule
     public function buildQueryPayload()
     {
         $query = $this->builder->query;
+        // if there's an exact match against the supplied query, return it as an exact requirement
         if (preg_match("/\"(.*)\"/", $query, $matches)) {
             return [
                 'must' => [
@@ -38,6 +39,7 @@ class CategorySearchRule extends SearchRule
             ];
         }
 
+        // if not, prefer a rough match (within 5 transposition/rewrite steps) from category name
         return [
             'should' => [
                 [

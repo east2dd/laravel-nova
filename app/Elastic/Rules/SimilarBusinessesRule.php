@@ -12,6 +12,7 @@ class SimilarBusinessesRule
      */
     public static function build(Business $business): array
     {
+        // calculate business similarity as number of categories overlapping, scaled by gaussian distance decay
         return [
             'function_score' => [
                 'score_mode' => 'max',
