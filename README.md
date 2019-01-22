@@ -74,6 +74,14 @@ docker-compose run --rm app php artisan queue:work sqs_mail
 ```bash
 docker-compose run --rm app php artisan queue:work sqs_sms
 ```
+
+# Tests
+
+To run the test suite:
+```bash
+docker-compose run --rm app ./build-deploy/test.sh
+```
+
 ### Mac Set-up
 
 ```Docker Mac
