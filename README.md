@@ -10,7 +10,7 @@ To start the project, just run:
 docker-compose up
 ```
 
-If you want to start containers in background(as a daemon), add the `-d` flag:
+If you want to start containers in background (as a daemon), add the `-d` flag:
 
 ```bash
 docker-compose up -d
@@ -33,7 +33,7 @@ docker-compose stop
 ```
 # Force Running Project
 
-There are many unexpected problems to stop running project. ex. Low version Ubuntu, openvpn connect problem.
+There are many unexpected problems to stop running project. ex. Low version Ubuntu, OpenVPN connect problem.
 ```bash
 sudo service docker restart
 docker-compose down --rmi=local -v -f
@@ -87,10 +87,10 @@ docker-compose run --rm app php artisan queue:work sqs_sms
     4. Inside your app run `composer commands` to update all packages
 
     5. after that run make sure you have the righ permissions for that
-            go to app->bulid-deploy 
+            go to app->build-deploy
                 run `sudo chmod  +x first_run.sh`
                 run `sudo chmod  +x run.sh`
-            next go to app->bulid-deploy->image
+            next go to app->build-deploy->image
                 run `sudo chmod  +x run.sh`
 
     6. Now run  `docker-compose build` and  inside your app
