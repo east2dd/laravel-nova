@@ -43,6 +43,7 @@ services:
       app:
         aliases:
           - 127.0.0.1
+          - mysql.app.local
     ports:
       - 3306:3306
   elasticsearch:
