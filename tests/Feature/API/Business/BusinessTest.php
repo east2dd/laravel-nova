@@ -3,6 +3,7 @@
 namespace Tests\Feature\API\Business;
 
 use App\Elastic\Rules\AggregationRule;
+use App\Models\Business;
 use App\Models\MapPreset;
 use Elasticsearch\ClientBuilder;
 use Illuminate\Support\Facades\Storage;
@@ -80,14 +81,13 @@ class BusinessTest extends TestCase
         ];
 
         $response = $this->json('PUT', '/api/v1/businesses', $params);
-
         $response->assertStatus(200);
 
         $this->assertDatabaseHas('businesses', [
             'uuid' => $uuid,
             'name' => $newName,
-            'lat' => $newLat,
-            'lng' => $newLng
+            'lat' => round($newLat, 6),
+            'lng' => round($newLng, 6)
         ]);
     }
 
@@ -165,6 +165,7 @@ class BusinessTest extends TestCase
         $user = factory(\App\Models\User::class)->make();
 
         Passport::actingAs($user);
+        Storage::fake('s3:images');
 
         $hosts = [
             env('SCOUT_ELASTIC_HOST', 'localhost:9000')
@@ -184,7 +185,6 @@ class BusinessTest extends TestCase
         ];
 
         $response = $this->json('GET', '/api/v1/businesses/stats', $params);
-
         $response
             ->assertStatus(200)
             ->assertJson([
@@ -212,6 +212,9 @@ class BusinessTest extends TestCase
         ]);
 
         $mapPreset = MapPreset::find($mapPresetHour->id);
+        $mapPreset->isOpened = 0;
+        $mapPreset->save();
+
         $user      = factory(\App\Models\User::class)->make();
         $params    = [
             'map_preset_id' => $mapPreset->uuid

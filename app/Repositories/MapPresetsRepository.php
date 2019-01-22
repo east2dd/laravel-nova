@@ -34,10 +34,11 @@ class MapPresetsRepository
      * @param int|null $id
      * @return MapPreset|\Illuminate\Database\Eloquent\Builder
      */
-    public function getActive(?int $id = null) {
+    public function getActive(?int $id = null)
+    {
         $mapPreset = $this->model;
         if (null !== $id) {
-            $mapPreset->where('id', $id);
+            $mapPreset = $mapPreset->where('id', $id)->where('isOpened', '<>', 0);
 
             return $mapPreset->first();
         }
