@@ -86,9 +86,9 @@ class AttachedResourceUpdateController extends Controller
     /**
      * Determine if the model has been updated since it was retrieved.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return void
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest $request
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @return bool
      */
     protected function modelHasBeenUpdatedSinceRetrieval(NovaRequest $request, $model)
     {

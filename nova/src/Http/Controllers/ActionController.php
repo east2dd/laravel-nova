@@ -28,7 +28,7 @@ class ActionController extends Controller
     /**
      * Perform an action on the specified resources.
      *
-     * @param  \Laravel\Nova\Http\Requests\ActionRequest  $request
+     * @param  \Laravel\Nova\Http\Requests\ActionRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(ActionRequest $request)

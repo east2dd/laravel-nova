@@ -27,9 +27,9 @@ class DeleteAttachments
     /**
      * Delete the attachments associated with the field.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $model
-     * @return void
+     * @param  \Illuminate\Http\Request $request
+     * @param  mixed $model
+     * @return array
      */
     public function __invoke(Request $request, $model)
     {
