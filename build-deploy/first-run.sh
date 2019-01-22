@@ -14,6 +14,7 @@ php artisan elastic:create-index 'App\Elastic\Configurators\Business'
 php artisan elastic:create-index 'App\Elastic\Configurators\BusinessAttribute'
 php artisan elastic:create-index 'App\Elastic\Configurators\BusinessReview'
 php artisan elastic:create-index 'App\Elastic\Configurators\BusinessPost'
+php artisan elastic:create-index 'App\Elastic\Configurators\Category'
 
 # Update cover photo for businesses
 php artisan update:place-avatar
