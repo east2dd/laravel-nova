@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\BusinessReview;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Passport\Passport;
 use Tests\TestCase;
 
@@ -15,6 +16,7 @@ class BusinessReviewTest extends TestCase
     {
         $user = factory(\App\Models\User::class)->create();
         Passport::actingAs($user);
+        Storage::fake('s3:images');
 
         $businessReview = factory(BusinessReview::class)->make();
         $params       = [
