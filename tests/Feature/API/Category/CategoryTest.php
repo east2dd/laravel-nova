@@ -30,6 +30,7 @@ class CategoryTest extends TestCase
     {
         $user     = factory(\App\Models\User::class)->create();
         $category = factory(\App\Models\Category::class)->make();
+        $category->name = substr($category->name, 0, 10);
 
         Passport::actingAs($user);
         Storage::fake('public');        
@@ -60,6 +61,7 @@ class CategoryTest extends TestCase
     {
         $user     = factory(\App\Models\User::class)->create();
         $category = factory(\App\Models\Category::class)->make();
+        $category->name = substr($category->name, 0, 10);
     
         Passport::actingAs($user);
         Storage::fake('public');
@@ -98,6 +100,7 @@ class CategoryTest extends TestCase
     {
         $user     = factory(\App\Models\User::class)->create();
         $category = factory(\App\Models\Category::class)->make();
+        $category->name = substr($category->name, 0, 10);
     
         Passport::actingAs($user);
         Storage::fake('public');

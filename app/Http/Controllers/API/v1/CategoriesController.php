@@ -75,7 +75,7 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         try {
-
+            // TODO: Why is name limited to 10 or less characters?
             $this->validate($request, [
                 'name' => ['required', 'string', 'max:10'],
                 'icon' => ['nullable']
@@ -93,7 +93,7 @@ class CategoriesController extends Controller
         if($request->file('icon') !== null) {
             $request->file('icon')->store('icons');
             $icon = $request->file('icon')->hashName();
-        } 
+        }
 
         $category = Category::create(
             [
