@@ -241,6 +241,9 @@ class BusinessTest extends TestCase
         ]);
 
         $mapPreset = MapPreset::find($mapPresetHour->id);
+        $mapPreset->isOpened = 1;
+        $mapPreset->save();
+
         $user      = factory(\App\Models\User::class)->make();
         $params    = [
             'map_preset_id' => $mapPreset->uuid
