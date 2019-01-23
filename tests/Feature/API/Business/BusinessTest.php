@@ -130,7 +130,8 @@ class BusinessTest extends TestCase
     /**
      * Forbidden to create
      */
-    public function testStoreForbidden() {
+    public function testStoreForbidden()
+    {
         $business = factory(\App\Models\Business::class)->make();
         $params   = [
             'name' => $business->name,
@@ -146,7 +147,8 @@ class BusinessTest extends TestCase
     /**
      * Fetching business by ID
      */
-    public function testShow() {
+    public function testShow()
+    {
         $user     = factory(\App\Models\User::class)->make();
         $business = factory(\App\Models\Business::class)->create();
 
@@ -161,7 +163,8 @@ class BusinessTest extends TestCase
             ]);
     }
 
-    public function testGetStats() {
+    public function testGetStats()
+    {
         $user = factory(\App\Models\User::class)->make();
 
         Passport::actingAs($user);
@@ -194,7 +197,8 @@ class BusinessTest extends TestCase
             ]);
     }
 
-    public function testGeoJson() {
+    public function testGeoJson()
+    {
         $response = $this->json('GET', '/api/v1/businesses/geo-json');
         $response
             ->assertStatus(200);

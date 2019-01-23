@@ -78,3 +78,4 @@ class BusinessAttributeTest extends TestCase
         ]);
     }
 }
+

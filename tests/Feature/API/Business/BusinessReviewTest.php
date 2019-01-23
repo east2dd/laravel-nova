@@ -40,3 +40,4 @@ class BusinessReviewTest extends TestCase
         ]);
     }
 }
+

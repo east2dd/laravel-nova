@@ -48,7 +48,8 @@ class OwnershipRequestTest extends TestCase
              ]);
     }
 
-    public function testRequestOwnershipPhone() {
+    public function testRequestOwnershipPhone()
+    {
         $user     = factory(User::class)->create();
         $business = factory(Business::class)->create([
              'user_id' => $user->id,

@@ -40,7 +40,8 @@ class RegisterTest extends TestCase
     /**
      * Register user with phone number
      */
-    public function testPhoneSuccess() {
+    public function testPhoneSuccess()
+    {
         $user        = factory(\App\Models\User::class)->make();
         $credentials = [
             'phone' => $user->phone
@@ -59,7 +60,8 @@ class RegisterTest extends TestCase
     /**
      * Test with email that already has been taken
      */
-    public function testEmailPasswordError() {
+    public function testEmailPasswordError()
+    {
         $user        = factory(\App\Models\User::class)->create();
         $credentials = [
             'email'    => $user->email,
@@ -77,7 +79,8 @@ class RegisterTest extends TestCase
     /**
      * Test with phone that already has been taken
      */
-    public function testPhoneError() {
+    public function testPhoneError()
+    {
         $user        = factory(\App\Models\User::class)->create();
         $credentials = [
             'phone' => $user->phone
@@ -92,3 +95,4 @@ class RegisterTest extends TestCase
             ]);
     }
 }
+

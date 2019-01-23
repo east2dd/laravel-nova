@@ -145,3 +145,4 @@ class BusinessPostTest extends TestCase
             ]);
     }
 }
+

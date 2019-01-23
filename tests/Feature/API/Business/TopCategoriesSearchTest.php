@@ -43,3 +43,4 @@ class TopCategoriesSearchTest extends TestCase
             ]);
     }
 }
+
