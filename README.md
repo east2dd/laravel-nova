@@ -82,7 +82,14 @@ To run the test suite:
 docker-compose run --rm app ./build-deploy/test.sh
 ```
 
-### Mac Set-up
+# ElasticSearch Indexes
+
+To regenerate the elastic search indexes:
+```bash
+docker-compose run --rm app php artisan elastic:setup-indexes
+```
+
+# Mac Set-up
 
 ```Docker Mac
 

@@ -10,11 +10,12 @@ php artisan db:seed
 php artisan passport:install --force
 
 # Elasticsearch create indexes
-php artisan elastic:create-index 'App\Elastic\Configurators\Business'
-php artisan elastic:create-index 'App\Elastic\Configurators\BusinessAttribute'
-php artisan elastic:create-index 'App\Elastic\Configurators\BusinessReview'
-php artisan elastic:create-index 'App\Elastic\Configurators\BusinessPost'
-php artisan elastic:create-index 'App\Elastic\Configurators\Category'
+#php artisan elastic:create-index 'App\Elastic\Configurators\Business'
+#php artisan elastic:create-index 'App\Elastic\Configurators\BusinessAttribute'
+#php artisan elastic:create-index 'App\Elastic\Configurators\BusinessReview'
+#php artisan elastic:create-index 'App\Elastic\Configurators\BusinessPost'
+#php artisan elastic:create-index 'App\Elastic\Configurators\Category'
+php artisan elastic:setup-indexes
 
 # Update cover photo for businesses
 php artisan update:place-avatar
