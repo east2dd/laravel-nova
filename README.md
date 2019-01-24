@@ -89,62 +89,20 @@ To regenerate the elastic search indexes:
 docker-compose run --rm app php artisan elastic:setup-indexes
 ```
 
-# Mac Set-up
+# Docker Setup
 
-```Docker Mac
+```Docker Setup
 
-    1. Install the docker in your mac
+    1. Install the docker
+    2. Configure .env file and change mysql db_host to 127.0.0.1 and also change in docker.yaml file. mysql Environment to `MYSQL_HOST=127.0.0.1` and `app: aliases: - 127.0.0.1`
+    3. Inside your app run `composer commands` to update all packages
+    4. after that run make sure you have the righ permissions for that
+        go to app->build-deploy
+            run `sudo chmod  755 first_run.sh`
+            run `sudo chmod  755 run.sh`
+        next go to app->build-deploy->image
+            run `sudo chmod  +x run.sh`
 
-    2. After installing docker in your mac clone the repo (app) into your machine 
-
-    3. Configure .env file and change mysql db_host to 127.0.0.1 and also change in docker.yaml file. mysql Environment to `MYSQL_HOST=127.0.0.1` and `app: aliases: - 127.0.0.1`
-
-    4. Inside your app run `composer commands` to update all packages
-
-    5. after that run make sure you have the righ permissions for that
-            go to app->build-deploy
-                run `sudo chmod  +x first_run.sh`
-                run `sudo chmod  +x run.sh`
-            next go to app->build-deploy->image
-                run `sudo chmod  +x run.sh`
-
-    6. Now run  `docker-compose build` and  inside your app
-
-    7. Start Laravel server to access app
-
-    If you use sequel pro for mysql use these credentials database: app, host: 127.0.0.1, username: root
-    Now you are able to access the app `http://127.0.0.1:8000/dashboard:login` url
-
+    5. Now run  `docker-compose build` and  inside your app
+    6. Start Laravel server to access app
     ```
-#################################################
-#         SWAGGER USING DOCUMENTATION           #
-#################################################
-
-# Generate beautiful RESTful Laravel API documentation with Swagger
-- Run: php artisan list  TO check swagger already integrated in application:
-If swagger already integrated, it will show these items in artisan list
-l5-swagger
-  l5-swagger:generate        Regenerate docs
-  l5-swagger:publish         Publish config, views
-
-- Create an endpoint and automate the documentation:
-In controller class, above method of controller which you want to make API documentation, add below lines in comment:
-/**
-     * @OA\POST/GET/DELETE/PUT(
-     *     path="/api/v1/{method_route_url}",
-     *     summary="Example summary.",
-     *     @OA\Parameter(
-     *         list all parametters for method
-     *         required=true,
-     *         in="query"
-     *     ),
-     *     @OA\Response(
-     *         write response format here
-     *     )
-     * )
-     */
-
-
-- RUN: php artisan l5-swagger:generate to generate document
-
-- API document should be here: {app_url}/api/documentation

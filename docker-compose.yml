@@ -21,7 +21,7 @@ services:
     networks:
       app:
         aliases:
-          - api.app.local
+          - 127.0.0.1
     ports:
       - 80:80
       - 443:443
